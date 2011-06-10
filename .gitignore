@@ -1,4 +1,7 @@
+#eclipse
 .settings
 .buildpath
 .project
 
+#phpunit
+tests/phpunit.xml
