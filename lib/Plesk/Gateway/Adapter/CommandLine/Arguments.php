@@ -14,7 +14,7 @@ class Plesk_Gateway_Adapter_CommandLine_Arguments
 	public function __construct(array $arguments = array())
 	{
 
-		$this->_arguments = array();
+		$this->_arguments = $arguments;
 
 	}
 
@@ -40,7 +40,12 @@ class Plesk_Gateway_Adapter_CommandLine_Arguments
 				$args .= ' ';
 			}
 
-			$args .= '-' . $key . ' "' . $value . '"';
+			if (is_string($key)) {
+				$args .= '-' . $key . ' ';
+
+			}
+
+			$args .= escapeshellarg($value);
 
 		}
 

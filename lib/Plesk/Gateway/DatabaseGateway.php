@@ -8,9 +8,10 @@ interface Plesk_Gateway_DatabaseGateway
 
 	/**
 	 * create a new database
+	 * @param string $name
 	 * @param Plesk_Gateway_Parameters $params
 	 * @return Plesk_Gateway_Response
 	 */
-	public function create(Plesk_Gateway_Parameters $params);
+	public function create($name, Plesk_Gateway_Parameters $params);
 
 }

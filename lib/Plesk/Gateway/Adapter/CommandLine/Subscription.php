@@ -11,10 +11,16 @@ class Plesk_Gateway_Adapter_CommandLine_Subscription
 	implements Plesk_Gateway_SubscriptionGateway
 {
 
-	public function create(Plesk_Gateway_Parameters $params)
+	public function create($name, Plesk_Gateway_Parameters $params)
 	{
 
+		$ret = $this->_execute('subscription', 'create ' . $name, $params);
 
+		if (!$ret->getReturnValue()) {
+			return true;
+		}
+
+		return false;
 
 	}
 

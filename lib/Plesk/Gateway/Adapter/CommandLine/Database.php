@@ -11,9 +11,16 @@ class Plesk_Gateway_Adapter_CommandLine_Database
 	implements Plesk_Gateway_DatabaseGateway
 {
 
-	public function create(Plesk_Gateway_Parameters $params)
+	public function create($name, Plesk_Gateway_Parameters $params)
 	{
 
+		$ret = $this->_execute('database', 'create ' . $name, $params);
+
+		if (!$ret->getReturnValue()) {
+			return true;
+		}
+
+		return false;
 
 	}
 

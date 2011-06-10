@@ -36,9 +36,9 @@ abstract class Plesk_Gateway_Adapter_CommandLine
 	{
 
 		$method = '--' . ltrim($method, '-');
-		$args = new Plesk_Gateway_Adapter_CommandLine_Arguments($params);
 
-		return $this->_executer($cmd, $method, (string)$args);
+		$args = new Plesk_Gateway_Adapter_CommandLine_Arguments((array)$params);
+		return $this->_executer->execute($cmd, $method, (string)$args);
 
 	}
 
