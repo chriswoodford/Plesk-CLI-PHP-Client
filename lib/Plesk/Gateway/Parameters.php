@@ -1,6 +1,6 @@
 <?php
 
-class Plesk_Gateway_Parameters extends \ArrayObject
+class Plesk_Gateway_Parameters extends ArrayObject
 {
 
 	/**
