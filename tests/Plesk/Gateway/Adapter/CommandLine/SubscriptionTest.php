@@ -10,7 +10,7 @@ class Plesk_Gateway_Adapter_CommandLine_SubscriptionTest extends PHPUnit_Framewo
 		$gateway = new Plesk_Gateway_Adapter_CommandLine_Subscription($exec);
 
 		$params = new Plesk_Gateway_Parameters(array(
-			'onwer' => 'example.com',
+			'owner' => 'example.com',
 			'service-plan' => 'Used by CFS gateway - Do Not Delete',
 			'hst_type' => 'phys',
 			'hosting' => 'true',
