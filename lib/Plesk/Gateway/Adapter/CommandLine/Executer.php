@@ -31,16 +31,23 @@ class Plesk_Gateway_Adapter_CommandLine_Executer
 	 * @param string $method
 	 * @param string $args
 	 */
-	public function execute($cmd, $method, $args)
+	public function execute($cmd = '', $method = '', $args = '')
 	{
 
 		$output = array();
 		$return = null;
 
-		$commandString = $this->getCommandPath($cmd) . ' ' . $method . ' ' . $args;
+		$commandString = $this->getCommandPath($cmd);
 
-		call_user_func_array($this->_function, array($commandString, $ouput, $return));
+		if ($method) {
+			$commandString .= ' ' . $method;
+		}
 
+		if ($args) {
+			$commandString .= ' ' . $args;
+		}
+
+		call_user_func_array($this->_function, array($commandString, &$output, &$return));
 		return new Plesk_Gateway_Adapter_CommandLine_Response($return, implode("\n", $output));
 
 	}
@@ -54,10 +61,14 @@ class Plesk_Gateway_Adapter_CommandLine_Executer
 	public function getCommandPath($cmd = null)
 	{
 
-		$path = rtrim($this->_commandPath, '/');
+		$path = rtrim($this->_commandPath, DIRECTORY_SEPARATOR);
+
+		if ($path && $cmd) {
+			$path .= DIRECTORY_SEPARATOR;
+		}
 
 		if ($cmd) {
-			$path .= '/' . $cmd;
+			$path .= $cmd;
 		}
 
 		return $path;

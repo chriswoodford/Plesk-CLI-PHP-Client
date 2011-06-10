@@ -1,19 +1,19 @@
 <?php
 
-/** @see Plesk_Gateway_AbstractFactory */
-require_once 'Plesk/Gateway/AbstractFactory.php';
+/** @see Plesk_Gateway_Factory */
+require_once 'Plesk/Gateway/Factory.php';
 
 class Plesk_GatewayManager
 {
 
-	/** @var Plesk_Gateway_AbstractFactory */
+	/** @var Plesk_Gateway_Factory */
 	protected $_factory;
 
 	/**
 	 * initialize the gateway manager with an abstract factory
-	 * @param Plesk_Gateway_AbstractFactory $factory
+	 * @param Plesk_Gateway_Factory $factory
 	 */
-	public function __construct(Plesk_Gateway_AbstractFactory $factory)
+	public function __construct(Plesk_Gateway_Factory $factory)
 	{
 
 		$this->_factory = $factory;
@@ -27,7 +27,7 @@ class Plesk_GatewayManager
 	public function getCustomerGateway()
 	{
 
-		return $this->_factory->createCustomerAdapter();
+		return $this->_factory->createCustomerGateway();
 
 	}
 
@@ -38,7 +38,7 @@ class Plesk_GatewayManager
 	public function getSubscriptionGateway()
 	{
 
-		return $this->_factory->createSubscriptionAdapter();
+		return $this->_factory->createSubscriptionGateway();
 
 	}
 
@@ -49,7 +49,7 @@ class Plesk_GatewayManager
 	public function getDatabaseGateway()
 	{
 
-		return $this->_factory->createSubscriptionAdapter();
+		return $this->_factory->createDatabaseGateway();
 
 	}
 
