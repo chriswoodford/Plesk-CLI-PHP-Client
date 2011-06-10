@@ -10,18 +10,17 @@ class Plesk_Gateway_Adapter_CommandLine_SubscriptionTest extends PHPUnit_Framewo
 		$gateway = new Plesk_Gateway_Adapter_CommandLine_Subscription($exec);
 
 		$params = new Plesk_Gateway_Parameters(array(
-			'onwer' => 'thecrazyeights.net',
+			'onwer' => 'example.com',
 			'service-plan' => 'Used by CFS gateway - Do Not Delete',
 			'hst_type' => 'phys',
 			'hosting' => 'true',
 			'ip' => '67.205.74.171',
-			'login' => 'thecrazyeights2',
+			'login' => 'examples',
 			'passwd' => 'abc123',
 		));
 
-		$this->assertTrue($gateway->create('thecrazyeights.net', $params));
+		$this->assertTrue($gateway->create('example.com', $params));
 
 	}
 
 }
-

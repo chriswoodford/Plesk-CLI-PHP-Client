@@ -10,7 +10,7 @@ class Plesk_Gateway_Adapter_CommandLine_CustomerTest extends PHPUnit_Framework_T
 		$gateway = new Plesk_Gateway_Adapter_CommandLine_Customer($exec);
 
 		$params = new Plesk_Gateway_Parameters(array(
-			'name' => 'thecrazyeights.net',
+			'name' => 'example.com',
 			'passwd' => 'abc123',
 			'country' => 'CA',
 			'notify' => 'false',
@@ -18,7 +18,7 @@ class Plesk_Gateway_Adapter_CommandLine_CustomerTest extends PHPUnit_Framework_T
 			'owner' => 'suws2',
 		));
 
-		$this->assertTrue($gateway->create('thecrazyeights.net', $params));
+		$this->assertTrue($gateway->create('example.com', $params));
 
 	}
 
