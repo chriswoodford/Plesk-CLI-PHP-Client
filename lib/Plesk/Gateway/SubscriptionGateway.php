@@ -10,8 +10,15 @@ interface Plesk_Gateway_SubscriptionGateway
 	 * create a new subscription
 	 * @param string $name
 	 * @param Plesk_Gateway_Parameters $params
-	 * @return Plesk_Gateway_Response
+	 * @return boolean
 	 */
 	public function create($name, Plesk_Gateway_Parameters $params);
+
+	/**
+	 * delete an existing subscription
+	 * @param string $name
+	 * @return boolean
+	 */
+	public function delete($name);
 
 }

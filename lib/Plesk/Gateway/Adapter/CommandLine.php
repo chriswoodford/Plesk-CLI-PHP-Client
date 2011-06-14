@@ -32,12 +32,17 @@ abstract class Plesk_Gateway_Adapter_CommandLine
 	 * @param string $method
 	 * @param Plesk_Gateway_Parameters $params
 	 */
-	protected function _execute($cmd, $method, Plesk_Gateway_Parameters $params)
+	protected function _execute($cmd, $method, Plesk_Gateway_Parameters $params = null)
 	{
 
 		$method = '--' . ltrim($method, '-');
 
-		$args = new Plesk_Gateway_Adapter_CommandLine_Arguments((array)$params);
+		if ($params) {
+			$args = new Plesk_Gateway_Adapter_CommandLine_Arguments((array)$params);
+		} else {
+			$args = '';
+		}
+
 		return $this->_executer->execute($cmd, $method, (string)$args);
 
 	}

@@ -24,4 +24,17 @@ class Plesk_Gateway_Adapter_CommandLine_Subscription
 
 	}
 
+	public function delete($name)
+	{
+
+		$ret = $this->_execute('subscription', 'remove ' . $name);
+
+		if (!$ret->getReturnValue()) {
+			return true;
+		}
+
+		return false;
+
+	}
+
 }

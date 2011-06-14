@@ -24,4 +24,17 @@ class Plesk_Gateway_Adapter_CommandLine_Customer
 
 	}
 
+	public function delete($name)
+	{
+
+		$ret = $this->_execute('customer', 'remove ' . $name);
+
+		if (!$ret->getReturnValue()) {
+			return true;
+		}
+
+		return false;
+
+	}
+
 }
